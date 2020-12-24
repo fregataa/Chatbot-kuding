@@ -34,7 +34,7 @@ jobs:
     - uses: akhileshns/heroku-deploy@v3.7.8
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "chatbot-on-heroku" # Must be unique in Heroku
+        heroku_app_name: "chatbot-on-heroku-test" # Must be unique in Heroku
         heroku_email: "oper6909@gmail.com"
         usedocker: true
 #     - name: Test with pytest

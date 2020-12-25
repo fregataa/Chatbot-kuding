@@ -1,13 +1,11 @@
-FROM ubuntu:bionic
-RUN  apt-get update \
-  && apt-get install -y python3-pip python3-dev \
-  && cd /usr/local/bin \
-  && ln -s /usr/bin/python3 python \
-  && pip3 install --upgrade pip
-  
-LABEL "DESCRIPTIONS"="Dockerfile for the simple api"
+FROM python:3.8
 
-COPY requirements.txt ./
-RUN pip3 install -r requirements.txt
+COPY . /app
+WORKDIR /app
 
-CMD
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
